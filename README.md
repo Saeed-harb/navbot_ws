@@ -52,7 +52,7 @@ The repository is organized as four ROS packages:
 
 ### Demo video
 
-[▶ Watch the NavBot simulation demo](src/docs/media/navbot-demo.mp4)
+[▶ Watch the NavBot simulation demo](src/docs/media/navbot-demo.gif)
 
 ## Requirements
 
