@@ -10,6 +10,7 @@ def generate_launch_description():
 
     rviz_config = os.path.join(get_package_share_path('my_navbot_description'), 'rviz', 'navbot_slam_config.rviz')
     world_path = os.path.join(get_package_share_path('my_navbot_bringup'), 'worlds', 'test_world.sdf')
+    slam_params_path = os.path.join(get_package_share_path('my_navbot_bringup'), 'config', 'mapper_params_online_async.yaml')
 
     declare_use_sim_time_arg = DeclareLaunchArgument(
         'use_sim_time',
@@ -22,6 +23,12 @@ def generate_launch_description():
         default_value='my_map'
     )
 
+    declare_slam_params_arg = DeclareLaunchArgument(
+        'slam_params_file',
+        default_value=slam_params_path,
+        description='Path to the SLAM Toolbox parameter file'
+    )
+
     declare_world_arg = DeclareLaunchArgument(
         'world',
         default_value=world_path,
@@ -31,6 +38,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     map_name = LaunchConfiguration('map_name')
     world = LaunchConfiguration('world')
+    slam_params_file = LaunchConfiguration('slam_params_file')
 
     my_navbot_gazebo_launch = IncludeLaunchDescription(
         os.path.join(get_package_share_path('my_navbot_bringup'), 'launch', 'my_navbot_gazebo.launch.py'),
@@ -39,7 +47,7 @@ def generate_launch_description():
 
     slam_toolbox_launch = IncludeLaunchDescription(
                 os.path.join(get_package_share_path('slam_toolbox'), 'launch', 'online_async_launch.py'),
-                launch_arguments={'use_sim_time': use_sim_time}.items()
+                launch_arguments={'use_sim_time': use_sim_time, 'slam_params_file': slam_params_file}.items()
             )
     
     nav2_map_saver_launch = IncludeLaunchDescription(
@@ -57,6 +65,7 @@ def generate_launch_description():
 
     ld.add_action(declare_use_sim_time_arg)
     ld.add_action(declare_map_name_arg)
+    ld.add_action(declare_slam_params_arg)
     ld.add_action(declare_world_arg)
     ld.add_action(my_navbot_gazebo_launch)
     ld.add_action(slam_toolbox_launch)
