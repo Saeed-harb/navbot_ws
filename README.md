@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/media/navbot-overview.png" alt="NavBot in Gazebo and RViz" width="850">
+  <img src="src/docs/media/navbot-overview.png" alt="NavBot in Gazebo and RViz" width="850">
 </p>
 
 ## Project overview
@@ -35,24 +35,24 @@ The repository is organized as four ROS packages:
 ### Mapping with SLAM
 
 <p align="center">
-  <img src="docs/media/slam-map.png" alt="NavBot building an occupancy map with SLAM" width="800">
+  <img src="src/docs/media/slam-map.png" alt="NavBot building an occupancy map with SLAM" width="800">
 </p>
 
 ### Nav2 navigation
 
 <p align="center">
-  <img src="docs/media/navigation-goal.png" alt="NavBot navigating to a goal in RViz" width="800">
+  <img src="src/docs/media/navigation-goal.png" alt="NavBot navigating to a goal in RViz" width="800">
 </p>
 
 ### Autonomous exploration
 
 <p align="center">
-  <img src="docs/media/exploration-frontiers.png" alt="NavBot exploring map frontiers" width="800">
+  <img src="src/docs/media/exploration-frontiers.png" alt="NavBot exploring map frontiers" width="800">
 </p>
 
 ### Demo video
 
-[▶ Watch the NavBot simulation demo](docs/media/navbot-demo.mp4)
+[▶ Watch the NavBot simulation demo](src/docs/media/navbot-demo.mp4)
 
 ## Requirements
 
